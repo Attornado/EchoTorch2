@@ -425,7 +425,9 @@ def spectral_radius(m):
     :param m: squared 2D tensor
     :return:
     """
-    return torch.max(torch.abs(torch.eig(m)[0])).item()
+    # return torch.max(torch.abs(torch.eig(m)[0])).item()
+    eigenvalues = torch.linalg.eigvals(m)
+    return torch.max(torch.abs(eigenvalues)).item()
 # end spectral_radius
 
 
